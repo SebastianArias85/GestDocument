@@ -1,0 +1,27 @@
+BD:biblioteca
+
+
+-- Tabla: Autores
+CREATE TABLE Autores (
+    autor_id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100)
+);
+
+-- Tabla: Categorías
+CREATE TABLE Categorias (
+    categoria_id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50)
+);
+
+-- Tabla: Libros
+CREATE TABLE Libros (
+    libro_id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(200),
+    autor_id INT,
+    categoria_id INT,
+    anio_publicacion YEAR,
+    descripcion TEXT,
+    pdf_url VARCHAR(255),
+    FOREIGN KEY (autor_id) REFERENCES Autores(autor_id),
+    FOREIGN KEY (categoria_id) REFERENCES Categorias(categoria_id)
+);
